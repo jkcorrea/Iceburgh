@@ -1,4 +1,5 @@
-# ANDROID / ECLIPSE
+node_modules/
+www/
 
 # built application files
 *.apk
