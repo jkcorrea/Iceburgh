@@ -3,7 +3,7 @@ module.exports = function (grunt) {
     pkg: grunt.file.readJSON('package.json'),
     exec: {
       serve: {
-        command: "phonegap serve",
+        command: "phonegap serve &",
         stdout: true,
         stderror: true
       }
@@ -12,21 +12,16 @@ module.exports = function (grunt) {
     jade: {
       compile: {
         options: { pretty: true },
-        files: { 'www/index.html': 'src/index.jade' }
+        files: [{
+          expand: true,
+          cwd: 'src',
+          src: '**/*.jade',
+          dest: 'www',
+          ext: '.html'
+        }]
       }
     },
-    watch: {
-      grunt: { files: ['Gruntfile.js'] },
-      css: {
-        files: 'src/styles/**/*.scss',
-        tasks: ['sass']
-      },
-      jade: {
-        files: 'src/**/*.jade',
-        tasks: ['jade']
-      }
-    },
-    copy: {
+    sync: {
       main: {
         files: [
           {
@@ -40,16 +35,41 @@ module.exports = function (grunt) {
             cwd: 'src/images',
             src: '**/*',
             dest: 'www/images'
-          }
-        ]
+          },
+          {
+            expand: true,
+            cwd: 'src/scripts',
+            src: '**/*',
+            dest: 'www/js'
+          }],
+        verbose: true
       }
-    }
+    },
+    watch: {
+      grunt: { files: ['Gruntfile.js'] },
+      css: {
+        files: 'src/styles/**/*.scss',
+        tasks: ['sass']
+      },
+      jade: {
+        files: 'src/**/*.jade',
+        tasks: ['jade']
+      },
+      scripts: {
+        files: 'src/scripts/**/*.js',
+        tasks: ['sync']
+      },
+      images: {
+        files: 'src/images/**/*',
+        tasks: ['sync']
+      }
+    },
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jade');
-  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-sync');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-exec');
-  grunt.loadNpmTasks('grunt-sass');
   grunt.registerTask('default', ['sass', 'jade', 'exec:serve', 'watch']);
 };

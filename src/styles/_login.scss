@@ -1,0 +1,14 @@
+.view#login {
+  h1 {
+    margin-top: 50%;
+  }
+
+  img.login {
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+  }
+}
