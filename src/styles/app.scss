@@ -2,6 +2,7 @@
 
 $yellow: #FADB5F;
 $white: #fff;
+$dgrey: #333;
 $font-stack: 'Roboto Condensed', sans-serif;
 
 @function image-url($path) {
@@ -21,11 +22,24 @@ h1 {
   margin: 0;
 }
 
+h2 {
+  font-size: 20px;
+  font-weight: normal;
+  color: $yellow;
+  margin: 0;
+}
+
 h3 {
   font-size: 1.2rem;
   font-weight: normal;
   color: $white;
-  line-height: 0;
+  margin: 0;
+}
+
+h4 {
+  font-size: 14px;
+  font-weight: normal;
+  color: $white;
   margin: 0;
 }
 
@@ -33,7 +47,7 @@ h3 {
 .views {
   .view.view-main {
     .page {
-      background: image-url("bridge_bg.jpg") no-repeat center;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), image-url("bridge_bg.jpg") no-repeat center;
       background-size: auto 100%;
       background-position-x: 15%;
     }

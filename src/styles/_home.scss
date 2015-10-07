@@ -1,5 +1,35 @@
 .view#home {
   .page {
     background-position-y: -30%;
+
+    .profile {
+      margin-top: 24px;
+      margin-left: 20px;
+
+      #profile-pic {
+        background-image: image-url("andrew.jpg");
+        background-repeat: no-repeat;
+        background-size: 110%;
+        background-position: 50%;
+        border-radius: 50%;
+        height: 64px;
+        width: 64px;
+      }
+
+      #user-info { padding-top: 5px; }
+
+      #checkin {
+        height: 24px;
+        margin-right: 20px;
+        margin-left: -20px;
+        font-weight: bold;
+        font-size: 11px;
+        line-height: 24px;
+        background: $dgrey;
+        color: $yellow;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    }
   }
 }
