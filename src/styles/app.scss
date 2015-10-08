@@ -6,7 +6,7 @@ $dgrey: #333;
 $font-stack: 'Roboto Condensed', sans-serif;
 
 @function image-url($path) {
-  @return url("/images/#{$path}");
+  @return url("../images/#{$path}");
 }
 
 body { font-family: $font-stack !important; }
