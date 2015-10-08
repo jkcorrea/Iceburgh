@@ -1,7 +1,7 @@
 include _head.jade
 
 body
-  // Status bar overlay for fullscreen mode
+  //- Status bar overlay for fullscreen mode
   .statusbar-overlay
 
   .views
@@ -10,11 +10,42 @@ body
         .page(data-page="home")
           .page-content
             .row.profile
-              .col-20
+              .col-80
                 #profile-pic
-              .col-60#user-info
-                h2 Andrew Carnegie
-                h4 Level 1 | 9 Badges
+                #user-info
+                  h2 Andrew Carnegie
+                  h4 Level 1&ensp;|&ensp;#[i.fa.fa-trophy] 9
               .col-20
                 p#checkin.text-center Check in
+
+
+            .row#level-progress
+
+
+              //- Progress bar goes here
+            .row
+              .col-100
+                h2.text-center 10
+
+
+            .row#status-text
+              .col-33
+                h5.text-center You've scored 10 out of 20 points this level!
+              .col-33
+                h5.text-center points until Level 2
+              .col-33
+                h5.text-center Hint: Check out your friends' activity to find cool new places!
+
+
+            .row#activity-feed
+              .col-100
+                p#activity-header Activity
+                ul
+                  - for (var i=0; i<10; i++) { //- Just remake a bunch of hardcoded rows for now...
+                    li.activity
+                      .user-pic
+                      p.text-center Andrew Carnegie just discovered #[a(href="discoverable") Butcher and the Rye]
+                      .activity-photo
+                  - }
+
   include _js.jade

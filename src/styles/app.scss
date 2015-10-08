@@ -1,8 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300);
 
-$yellow: #FADB5F;
 $white: #fff;
+$black: #141414;
+$yellow: #FADB5F;
 $dgrey: #333;
+$lgrey: #ccc;
 $font-stack: 'Roboto Condensed', sans-serif;
 
 @function image-url($path) {
@@ -43,6 +45,16 @@ h4 {
   margin: 0;
 }
 
+h5 {
+  font-size: 11px;
+  font-weight: normal;
+  color: $white;
+  margin: 0;
+}
+
+p {
+  color: $white;
+}
 
 .views {
   .view.view-main {
