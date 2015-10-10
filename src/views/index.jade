@@ -1,7 +1,27 @@
 //- For redirecting in PG developer app
-doctype
-html
-  head
+include _head.jade
+script.
+  function displayHome(){
+    window.location.href = "/home.html";
+  }
+  
+  FB.getLoginStatus(function (response){
+    if (response.status == 'connected'){
+      console.log('Logged in');
+    }else{
+      console.log(response);
+    }
+    displayHome();
+  });
+  
+  function loginUser(){
+    FB.login(function(response){
+      console.log(response);
+      displayHome();
+    }, {scope: 'public_profile, email, user_friends'} );
+  }
+body
     title Iceburgh | Explore Pittsburgh
-    meta(http-equiv="refresh" content="0; URL='home.html'")
-
+    button(class="btn", data-action="bea", onclick='loginUser()').
+      Facebook Login
+    //- meta(http-equiv="refresh" content="0; URL='home.html'")

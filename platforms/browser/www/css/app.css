@@ -1,0 +1,120 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300);
+body {
+  font-family: "Roboto Condensed", sans-serif !important; }
+
+.text-center {
+  text-align: center; }
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #FADB5F;
+  margin: 0; }
+
+h2 {
+  font-size: 20px;
+  font-weight: normal;
+  color: #FADB5F;
+  margin: 0; }
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: #fff;
+  margin: 0; }
+
+h4 {
+  font-size: 14px;
+  font-weight: normal;
+  color: #fff;
+  margin: 0; }
+
+h5 {
+  font-size: 11px;
+  font-weight: normal;
+  color: #fff;
+  margin: 0; }
+
+p {
+  color: #fff; }
+
+.views .view.view-main .page {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/bridge_bg.jpg") no-repeat center;
+  background-size: auto 100%;
+  background-position-x: 15%; }
+
+.view#home .page {
+  background-position-y: -30%; }
+  .view#home .page .profile {
+    margin-top: 24px;
+    margin-left: 20px; }
+    .view#home .page .profile #profile-pic {
+      background-image: url("../images/andrew.jpg");
+      background-repeat: no-repeat;
+      background-size: 110%;
+      background-position: 50%;
+      border-radius: 50%;
+      height: 64px;
+      width: 64px;
+      float: left;
+      margin-right: 8px; }
+    .view#home .page .profile #user-info {
+      padding-top: 5px; }
+    .view#home .page .profile #checkin {
+      margin: 0 20px 0 -20px;
+      font-weight: bold;
+      font-size: 11px;
+      line-height: 24px;
+      background: #333;
+      color: #FADB5F;
+      border-radius: 3px;
+      cursor: pointer; }
+  .view#home .page #status-text {
+    padding: 0 10px 0 10px;
+    margin-bottom: 10px; }
+  .view#home .page #level-progress {
+    height: 65px; }
+  .view#home .page #activity-feed {
+    background: #141414;
+    height: 100%; }
+    .view#home .page #activity-feed #activity-header {
+      margin: 7px 0 0 25px;
+      font-size: 16px;
+      color: #ccc; }
+    .view#home .page #activity-feed ul {
+      list-style: none;
+      padding: 0; }
+      .view#home .page #activity-feed ul .activity {
+        margin: 0 20px 0 20px;
+        padding: 12px 0 12px;
+        border-bottom: 1px solid #ccc; }
+        .view#home .page #activity-feed ul .activity .user-pic {
+          background-image: url("../images/andrew.jpg");
+          background-repeat: no-repeat;
+          background-size: 110%;
+          background-position: 50%;
+          border-radius: 50%;
+          height: 64px;
+          width: 64px; }
+        .view#home .page #activity-feed ul .activity p {
+          font-size: 11px; }
+        .view#home .page #activity-feed ul .activity a {
+          color: #FADB5F; }
+        .view#home .page #activity-feed ul .activity .activity-photo {
+          background-image: url("../images/butcher.jpg");
+          background-repeat: no-repeat;
+          background-size: 100%;
+          height: 64px;
+          width: 64px; }
+
+.view#login h1 {
+  margin-top: 50%; }
+.view#login img.login {
+  width: 80%;
+  top: 60%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer; }
+
+/*# sourceMappingURL=app.css.map */
