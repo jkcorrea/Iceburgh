@@ -8,9 +8,19 @@ module.exports = function(grunt) {
         stderror: true
       }
     },
-    sass: { dist: { files: { 'www/css/app.css': 'src/styles/app.scss' } } },
+    sass: { main: { files: { 'www/css/app.css': 'src/styles/app.scss' } } },
+    uglify: {
+      main: {
+        files: { 'www/js/app.js': 'src/scripts/**/*.js' },
+        options: {
+          mangle: false,
+          beautify: true,
+          preserveComments: true
+        }
+      }
+    },
     jade: {
-      compile: {
+      main: {
         options: { pretty: true },
         files: [{
           expand: true,
@@ -35,12 +45,6 @@ module.exports = function(grunt) {
             cwd: 'src/images',
             src: '**/*',
             dest: 'www/images'
-          },
-          {
-            expand: true,
-            cwd: 'src/scripts',
-            src: '**/*',
-            dest: 'www/js'
           }],
         updateAndDelete: true,
         compareUsing: "md5",
@@ -49,6 +53,10 @@ module.exports = function(grunt) {
     },
     watch: {
       grunt: { files: ['Gruntfile.js'] },
+      scripts: {
+        files: 'src/scripts/**/*.js',
+        tasks: ['uglify']
+      },
       css: {
         files: 'src/styles/**/*.scss',
         tasks: ['sass']
@@ -56,10 +64,6 @@ module.exports = function(grunt) {
       jade: {
         files: 'src/**/*.jade',
         tasks: ['jade']
-      },
-      scripts: {
-        files: 'src/scripts/**/*.js',
-        tasks: ['sync']
       },
       images: {
         files: 'src/images/**/*',
@@ -70,8 +74,9 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jade');
-  grunt.loadNpmTasks('grunt-sync');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-sync');
   grunt.loadNpmTasks('grunt-exec');
-  grunt.registerTask('default', ['sass', 'jade', 'exec:serve', 'watch']);
+  grunt.registerTask('default', ['sass', 'jade', 'uglify', 'exec:serve', 'watch']);
 };
