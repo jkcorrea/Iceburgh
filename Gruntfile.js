@@ -11,7 +11,12 @@ module.exports = function(grunt) {
     sass: { main: { files: { 'www/css/app.css': 'src/styles/app.scss' } } },
     uglify: {
       main: {
-        files: { 'www/js/app.js': 'src/scripts/**/*.js' },
+        files: [{
+          expand: true,
+          cwd: 'src/scripts',
+          src: '**/*.js',
+          dest: 'www/js'
+        }],
         options: {
           mangle: false,
           beautify: true,
@@ -33,14 +38,12 @@ module.exports = function(grunt) {
     },
     sync: {
       main: {
-        files: [
-          {
+        files: [{
             expand: true,
             cwd: 'src/res',
             src: '**/*',
             dest: 'www/res'
-          },
-          {
+          }, {
             expand: true,
             cwd: 'src/images',
             src: '**/*',

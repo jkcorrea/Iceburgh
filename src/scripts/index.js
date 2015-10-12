@@ -5,8 +5,10 @@ var loginButton = $("#fb-login-overlay");
 if (loginButton.length) {
 
   function loginStatusCallback(showErr, res) {
-    if (res.status == 'connected') window.location.href = '/home.html';
-    else {
+    if (res.status === 'connected') {
+      localStorage.setItem("fb-access-token", res.authResponse.accessToken)
+      window.location.href = '/home.html';
+    } else {
       $('#login-error').toggleClass('hide', !showErr);
     }
   }
@@ -17,7 +19,7 @@ if (loginButton.length) {
     // Enable login button
     loginButton.removeClass('desaturate');
 
-    // Check if user is already logged in, don't show errors if they aren't yet
+    // // Check if user is already logged in, don't show errors if they aren't yet
     FB.getLoginStatus(loginStatusCallback.bind(null, false));
 
     // Click to login, show errors if they didn't login/accept app permissions

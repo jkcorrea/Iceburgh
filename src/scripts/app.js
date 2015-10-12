@@ -12,5 +12,11 @@ $(function() {
 
     // Emit event so that any page knows that FB object has been loaded
     $(document).trigger('fbload');
+
+    FB.getLoginStatus(function(res) {
+      // If visitor is not logged in, redirect to login page
+      if (res.status !== 'connected' && window.location.pathname !== '/')
+        window.location.href = '/';
+    });
   });
 });
