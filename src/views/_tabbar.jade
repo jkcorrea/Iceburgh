@@ -1,0 +1,14 @@
+.toolbar.tabbar
+  .toolbar-inner
+    a.tab-link(
+      href=(currentPage === 'home') ? '#' : '/home.html'
+      class=(currentPage === 'home') ? "active" : "")
+      i.fa.fa-home
+    a.tab-link(
+      href=(currentPage === 'discover') ? '#' : '/discover.html'
+      class=(currentPage === 'discover') ? "active" : "")
+      i.fa.fa-compass
+    a.tab-link(
+      href=(currentPage === 'more') ? '#' : '/more.html'
+      class=(currentPage === 'more') ? "active" : "")
+      i.fa.fa-ellipsis-h

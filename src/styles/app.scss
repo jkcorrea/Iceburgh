@@ -11,8 +11,10 @@ $font-stack: 'Roboto Condensed', sans-serif;
   @return url("../images/#{$path}");
 }
 
-body {font-family:$font-stack !important;}
-.text-center {text-align:center;}
+body{font-family:$font-stack!important;}
+.text-center{text-align:center;}
+.hide{display:none!important;}
+.desaturate{-webkit-filter:grayscale(100%);filter:grayscale(100%);}
 p{color:$white;}
 h1,h2,h3,h4,h5,h6{margin:0;}
 h1,h2{color:$yellow;}
@@ -33,5 +35,15 @@ h5{font-size: 11px;font-weight: normal;}
   }
 }
 
+.toolbar.tabbar {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/bridge_bg.jpg") no-repeat center $black;
+  background-size: auto 667px;
+  background-position-x: 15%;
+  background-position-y: -470px;
+  font-size: 1.6rem;
+}
+
+
+
 @import "home";
-@import "login";
+@import "index";

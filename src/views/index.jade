@@ -1,27 +1,18 @@
-//- For redirecting in PG developer app
 include _head.jade
-script.
-  function displayHome(){
-    window.location.href = "/home.html";
-  }
-  
-  FB.getLoginStatus(function (response){
-    if (response.status == 'connected'){
-      console.log('Logged in');
-    }else{
-      console.log(response);
-    }
-    displayHome();
-  });
-  
-  function loginUser(){
-    FB.login(function(response){
-      console.log(response);
-      displayHome();
-    }, {scope: 'public_profile, email, user_friends'} );
-  }
+
 body
-    title Iceburgh | Explore Pittsburgh
-    button(class="btn", data-action="bea", onclick='loginUser()').
-      Facebook Login
-    //- meta(http-equiv="refresh" content="0; URL='home.html'")
+  // Status bar overlay for fullscreen mode
+  .statusbar-overlay
+
+  .views
+    .view.view-main#login
+      .pages
+        .page(data-page="login")
+          .page-content
+            h1.text-center#title ICEBURGH
+            h3.text-center#subtitle there's more than meets the eye.
+            p.hide.text-center#login-error You must login via Facebook to use ICEBURGH!
+            img.desaturate#fb-login-overlay(src="/images/FB-login.png")
+            //- .fb-login-button(colorscheme="dark" data-max-rows="1" data-size="xlarge" data-show-faces="true" data-auto-logout-link="true" data-scope="public_profile, email, user_friends")
+
+  include _js.jade

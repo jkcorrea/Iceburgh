@@ -1,19 +1,20 @@
+//- Define current page for tabbar's sake
+- var currentPage = 'home'
+
 include _head.jade
 
 body
-  //- Status bar overlay for fullscreen mode
-  .statusbar-overlay
-
   .views
     .view.view-main#home
       .pages
         .page(data-page="home")
+          include _tabbar.jade
           .page-content
-            .my-info
+            #user-info-container
               .row.profile
                 .col-80
                   #profile-pic
-                  #user-info
+                  #user-details
                     h2 Andrew Carnegie
                     h4 Level 1&ensp;|&ensp;#[i.fa.fa-trophy] 9
                 .col-20

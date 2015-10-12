@@ -1,0 +1,20 @@
+.view#login {
+  #title { margin-top: 50%; }
+  #subtitle { margin-bottom: 1rem; }
+  #login-error { color: #ff0033; margin-bottom: 5px; }
+
+  #fb-login-overlay {
+    width: 80%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    cursor: pointer;
+  }
+
+  // .fb-login-button {
+  //   position: absolute;
+  //   top: 53%;
+  //   left: 23%;
+  //   z-index: -1;
+  // }
+}

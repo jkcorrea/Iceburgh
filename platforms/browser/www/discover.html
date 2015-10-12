@@ -16,17 +16,14 @@
   </head>
 </html>
 <body>
-  <!-- Status bar overlay for fullscreen mode-->
-  <div class="statusbar-overlay"></div>
   <div class="views">
-    <div id="login" class="view view-main">
+    <div id="discover" class="view view-main">
       <div class="pages">
-        <div data-page="login" class="page">
-          <div class="page-content">
-            <h1 id="title" class="text-center">ICEBURGH</h1>
-            <h3 id="subtitle" class="text-center">there's more than meets the eye.</h3>
-            <p id="login-error" class="hide text-center">You must login via Facebook to use ICEBURGH!</p><img id="fb-login-overlay" src="/images/FB-login.png" class="desaturate">
+        <div data-page="discover" class="page">
+          <div class="toolbar tabbar">
+            <div class="toolbar-inner"><a href="/home.html" class="tab-link"><i class="fa fa-home"></i></a><a href="#" class="tab-link active"><i class="fa fa-compass"></i></a><a href="/more.html" class="tab-link"><i class="fa fa-ellipsis-h"></i></a></div>
           </div>
+          <div class="page-content"></div>
         </div>
       </div>
     </div>

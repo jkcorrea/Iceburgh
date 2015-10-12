@@ -1,0 +1,15 @@
+//- Define current page for tabbar's sake
+- var currentPage = 'more'
+
+include _head.jade
+
+body
+  .views
+    .view.view-main#more
+      .pages
+        .page(data-page="more")
+          include _tabbar.jade
+          .page-content
+
+
+  include _js.jade
