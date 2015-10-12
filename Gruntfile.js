@@ -48,6 +48,11 @@ module.exports = function(grunt) {
             cwd: 'src/images',
             src: '**/*',
             dest: 'www/images'
+          }, {
+            expand: true,
+            cwd: 'src/vendor',
+            src: '**/*',
+            dest: 'www/vendor'
           }],
         updateAndDelete: true,
         compareUsing: "md5",
@@ -81,5 +86,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-sync');
   grunt.loadNpmTasks('grunt-exec');
-  grunt.registerTask('default', ['sass', 'jade', 'uglify', 'exec:serve', 'watch']);
+  grunt.registerTask('default', ['sync', 'sass', 'jade', 'uglify', 'exec:serve', 'watch']);
 };

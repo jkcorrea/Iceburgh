@@ -9,3 +9,9 @@ $(document).on('fbload', function() {
     $("#user-details .name").text(res.name);
   });
 });
+
+$("#checkin").click(function() {
+  navigator.geolocation.getCurrentPosition(function(pos) {
+    console.log("coords: " + pos.coords.latitude + ", " + pos.coords.longitude);
+  });
+});
