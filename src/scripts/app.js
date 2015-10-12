@@ -3,6 +3,7 @@ function redirect_to(path) { window.location.pathname = path; }
 function get_pathname() { return window.location.pathname; }
 function at_root() { return get_pathname() === root_path || get_pathname === index_path; }
 
+Parse.initialize("fb7wEhSejPWUDLU3VmdBYh8LCgFnv6AwUy1Cd3qj", "nBU31sSd28glL0wd8c39ydlVIrobJNggVijyRM62");
 var app = new Framework7();
 var $ = jQuery.noConflict();
 $.ajaxSetup({ cache: true });

@@ -15,3 +15,4 @@ $("#checkin").click(function() {
     console.log("coords: " + pos.coords.latitude + ", " + pos.coords.longitude);
   });
 });
+

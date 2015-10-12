@@ -70,9 +70,6 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
-        <feature name="Geolocation">
-            <param name="ios-package" value="CDVLocation" />
-        </feature>
     </platform>
     <engine name="browser" spec="~4.0.0" />
 </widget>
