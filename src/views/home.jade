@@ -3,52 +3,51 @@
 
 include _head.jade
 
-body
-  .views
-    .view.view-main#home
-      .pages
-        .page(data-page="home")
-          include _tabbar.jade
-          .page-content
-            #user-info-container
-              .row.profile
-                .col-80
-                  #profile-pic
-                  #user-details
-                    h2.name Andrew Carnegie
-                    h4.details Level 1&ensp;|&ensp;#[i.fa.fa-trophy] 9
-                .col-20
-                  p#checkin.text-center Check in
+.views
+  .view.view-main#home
+    .pages
+      .page(data-page="home")
+        include _tabbar.jade
+        .page-content
+          #user-info-container
+            .row.profile
+              .col-80
+                #profile-pic
+                #user-details
+                  h2.name Andrew Carnegie
+                  h4.details Level 1&ensp;|&ensp;#[i.fa.fa-trophy] 9
+              .col-20
+                p#checkin.text-center Check in
 
 
-              .row#level-progress
+            .row#level-progress
 
 
-                //- Progress bar goes here
-              .row
-                .col-100
-                  h2.text-center 10
-
-
-              .row#status-text
-                .col-33
-                  h5.text-center You've scored 10 out of 20 points this level!
-                .col-33
-                  h5.text-center points until Level 2
-                .col-33
-                  h5.text-center Hint: Check out your friends' activity to find cool new places!
-
-
-            .row#activity-feed
+              //- Progress bar goes here
+            .row
               .col-100
-                p#activity-header Activity
-                ul
-                  - for (var i=0; i<10; i++) { //- Just remake a bunch of hardcoded rows for now...
-                    li.activity
-                      .user-pic
-                      .activity-text
-                        p.text-center Andrew Carnegie just discovered #[a(href="discoverable") Butcher and the Rye]
-                      .activity-photo
-                  - }
+                h2.text-center 10
 
-  include _js.jade
+
+            .row#status-text
+              .col-33
+                h5.text-center You've scored 10 out of 20 points this level!
+              .col-33
+                h5.text-center points until Level 2
+              .col-33
+                h5.text-center Hint: Check out your friends' activity to find cool new places!
+
+
+          .row#activity-feed
+            .col-100
+              p#activity-header Activity
+              ul
+                - for (var i=0; i<10; i++) { //- Just remake a bunch of hardcoded rows for now...
+                  li.activity
+                    .user-pic
+                    .activity-text
+                      p.text-center Andrew Carnegie just discovered #[a(href="discoverable") Butcher and the Rye]
+                    .activity-photo
+                - }
+
+include _js.jade

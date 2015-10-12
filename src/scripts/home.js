@@ -7,6 +7,5 @@ $(document).on('fbload', function() {
 
   FB.api('/me', function(res) {
     $("#user-details .name").text(res.name);
-    console.log(res.name);
   });
 });
