@@ -1,4 +1,4 @@
-$(document).on('fbload', function() {
+$(document).on('app_load', function() {
   // Do any work with FB API here
 
   // Logout user and redirect to login page

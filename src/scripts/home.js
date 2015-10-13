@@ -1,4 +1,4 @@
-$(document).on('fbload', function() {
+$(document).on('app_load', function() {
   // Do any work with FB API here
 
   FB.api('/me/picture?type=large', function(res) {
@@ -11,8 +11,14 @@ $(document).on('fbload', function() {
 });
 
 $("#checkin").click(function() {
-  navigator.geolocation.getCurrentPosition(function(pos) {
-    console.log("coords: " + pos.coords.latitude + ", " + pos.coords.longitude);
+  Parse.GeoPoint.current(function(pos) {
+    var query = new Parse.Query("Discoverable");
+    query.withinKilometers("location", pos, 0.300);
+    query.find({ success: checkinPopup });
   });
 });
 
+function checkinPopup(discoverables) {
+  var d = discoverables[0];
+  alert("Congratulations! You have received " + d.get("points") + " points for discovering " + d.get("name") + "!");
+}
