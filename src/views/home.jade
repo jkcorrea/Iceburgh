@@ -14,28 +14,29 @@ include _head.jade
               .col-80
                 #profile-pic
                 #user-details
-                  h2.name Andrew Carnegie
-                  h4.awards Level #[span 1]&ensp;|&ensp;#[i.fa.fa-trophy] 9
+                  h2#user-name Andrew Carnegie
+                  h4 Level #[span#user-level]&ensp;|&ensp;#[i.fa.fa-trophy] #[span#user-badges]
               .col-20
-                p#checkin.text-center Check in
+                p.text-center#checkin Check in
 
 
-            .row#level-progress
-
+            .row.text-center#level-progress
+              .col-100
+                img#progress-bar(src="/images/BridgeOutline_Partial.png")
 
               //- Progress bar goes here
             .row
               .col-100
-                h2.text-center#points-earned 10
+                h2.text-center#points-remaining &nbsp;
 
 
             .row#status-text
               .col-33
-                h5.text-center You've scored 10 out of 20 points this level!
+                h5.text-center You've scored #[span#total-points] total points this far. Nice!
               .col-33
-                h5.text-center points until Level 2
+                h5.text-center more points needed to reach level #[span#next-level]
               .col-33
-                h5.text-center Hint: Check out your friends' activity to find cool new places!
+                h5.text-center#suggestion Pro Tip: Check out your friends' activity to find cool new places!
 
 
           .row#activity-feed

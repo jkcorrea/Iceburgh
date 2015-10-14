@@ -4,21 +4,29 @@ var checkinButton = $("#checkin");
 $(document).on('app_load', function() {
   // Do any work with FB or Parse here
   var user = User.current();
+  user.fetch();
 
+  $("#profile-pic").css({backgroundImage: 'url("' + user.get("photo_url") + '")'});
+  $("#user-name").text(user.get("first_name") + " " + user.get("last_name"));
   function updateUserInfo() {
     // Retrieve user's current level
     user.level(function(lvl) {
       // Update points to level up
       lvl.pointsToNextLevel(user.get("points_earned"), function(pts) {
-        $("#points-earned").text(pts);
+        $("#points-remaining").text(pts);
       });
 
-      $("#user-details .awards span").text(lvl.get("priority"));
+      $("#user-level").text(lvl.get("priority"));
+      $("#next-level").text(lvl.get("priority") + 1);
+      $("#total-points").text(user.get("points_earned"));
     });
 
-    $("#profile-pic").css({backgroundImage: 'url("' + user.get("photo_url") + '")'});
-    $("#user-details .name").text(user.get("first_name") + " " + user.get("last_name"));
+    // Retrieve user's badges
+    user.badges(function(badges) {
+      $("#user-badges").text(badges.length);
+    })
   };
+  updateUserInfo(); // invoke this on app_load
 
   // Use checkin
   checkinButton.click(function checkin() {
@@ -34,7 +42,7 @@ $(document).on('app_load', function() {
           var d = discoverables[0];
           alert("Congratulations! You have received " + d.get("points") + " points for discovering " + d.get("name") + "!");
           user.increment("points_earned", d.get("points"));
-          user.save(null, { success: function(user) { updateUserInfo(); } });
+          user.save(null, { success: updateUserInfo });
           checkinButton.text("Check in");
           checkinButton.click(checkin);
         }
@@ -42,5 +50,4 @@ $(document).on('app_load', function() {
     }); // geopoint.current
   });
 
-  updateUserInfo();
 });
