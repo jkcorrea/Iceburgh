@@ -3,8 +3,8 @@ $(document).on('app_load', function() {
 
   // Logout user and redirect to login page
   $("#fb-logout").click(function() {
-    FB.logout(function() {
-      redirect_to("/");
+    Parse.User.logOut().then(function() {
+      redirect_to(root_path);
     });
   });
 });

@@ -22,12 +22,44 @@ $.getScript('//connect.facebook.net/en_US/sdk.js', function() {
       // If visitor is not logged in, redirect to login page
       redirect_to(root_path);
     } else {
-      // Emit event so that any page knows that FB object has been loaded
-      $(document).trigger('app_load');
-
-      // Give scripts a slight bit of time to load data, then reveal page
-      setTimeout(function() { $(".screen-loader-container").addClass('hide'); }, 250);
+      // Update user object
+      User.current().fetch().then(function() {
+        // Emit event so that any page knows that FB object has been loaded
+        $(document).trigger('app_load');
+        // Give scripts a slight bit of time to load data, then reveal page
+        $(".screen-loader-container").addClass('hide');
+      });
     }
   });
 
+});
+
+
+var Level = Parse.Object.extend("Level", {
+  // Instance methods
+  pointsToNextLevel: function(points_earned, cb) {
+    console.log(points_earned);
+    new Parse.Query(Level)
+      .greaterThan("priority", this.get("priority"))
+      .ascending("priority")
+      .first()
+      .then(function(level) { cb(level.get("min_points") - points_earned) });
+  }
+});
+var Badge = Parse.Object.extend("Badge");
+var Discovery = Parse.Object.extend("Discovery");
+var Discoverable = Parse.Object.extend("Discoverable");
+
+
+
+var User = Parse.User.extend({
+  // Instance methods
+  level: function(cb) {
+    // Get all levels the user has attained sorted by priority and pluck the highest one
+    new Parse.Query(Level)
+        .lessThanOrEqualTo("min_points", this.get("points_earned"))
+        .descending("priority")
+        .first()
+        .then(cb);
+  }
 });

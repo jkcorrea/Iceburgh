@@ -14,6 +14,7 @@ $(document).on('app_load', function() {
             user.set("first_name", res.first_name);
             user.set("last_name", res.last_name);
             user.set("photo_url", res.picture.data.url);
+            user.set("points_earned", 0);
             // TODO anything needed in success? fail gracefully on errors.
             user.save(null, { success: function(user) {}, error: function(user, error) { console.log("Failed to save User#" + user.objectId + " object with error code: " + error.message); } });
           });
