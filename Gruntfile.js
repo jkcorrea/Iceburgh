@@ -42,6 +42,8 @@ module.exports = function(grunt) {
             src: '**/*',
             dest: 'www/js'
           }],
+        updateAndDelete: true,
+        compareUsing: "md5",
         verbose: true
       }
     },

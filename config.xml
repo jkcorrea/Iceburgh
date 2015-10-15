@@ -71,5 +71,5 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
-    <engine name="browser" spec="~4.0.0" />
+    <engine name="ios" spec="~3.9.1" />
 </widget>
