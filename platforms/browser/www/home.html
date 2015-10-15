@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Iceburgh | Explore Pittsburgh</title>
+    <!-- Framework7 Library CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.2.0/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.2.0/css/framework7.ios.colors.min.css">
+    <script src="/js/facebook.js"></script>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '417307785141513',
+          xfbml      : true,
+          version    : 'v2.4'
+        });
+      };
+      
+      (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+      
+    </script>
+    <!-- FontAwesome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Custom styles-->
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+</html>
+<body>
+  <div class="statusbar-overlay"></div>
+  <div class="views">
+    <div id="home" class="view view-main">
+      <div class="pages">
+        <div data-page="home" class="page">
+          <div class="page-content">
+            <div class="row profile">
+              <div class="col-80">
+                <div id="profile-pic"></div>
+                <div id="user-info">
+                  <h2>Andrew Carnegie</h2>
+                  <h4>Level 1&ensp;|&ensp;<i class="fa fa-trophy"></i> 9</h4>
+                </div>
+              </div>
+              <div class="col-20">
+                <p id="checkin" class="text-center">Check in</p>
+              </div>
+            </div>
+            <div id="level-progress" class="row">
+            </div>
+            <div class="row">
+              <div class="col-100">
+                <h2 class="text-center">10</h2>
+              </div>
+            </div>
+            <div id="status-text" class="row">
+              <div class="col-33">
+                <h5 class="text-center">You've scored 10 out of 20 points this level!</h5>
+              </div>
+              <div class="col-33">
+                <h5 class="text-center">points until Level 2</h5>
+              </div>
+              <div class="col-33">
+                <h5 class="text-center">Hint: Check out your friends' activity to find cool new places!</h5>
+              </div>
+            </div>
+            <div id="activity-feed" class="row">
+              <div class="col-100">
+                <p id="activity-header">Activity</p>
+                <ul>
+                  <li class="activity">
+                    <div class="user-pic"></div>
+                    <p class="text-center">Andrew Carnegie just discovered <a href="discoverable">Butcher and the Rye</a></p>
+                    <div class="activity-photo"></div>
+                  </li>
+                  <li class="activity">
+                    <div class="user-pic"></div>
+                    <p class="text-center">Andrew Carnegie just discovered <a href="discoverable">Butcher and the Rye</a></p>
+                    <div class="activity-photo"></div>
+                  </li>
+                  <li class="activity">
+                    <div class="user-pic"></div>
+                    <p class="text-center">Andrew Carnegie just discovered <a href="discoverable">Butcher and the Rye</a></p>
+                    <div class="activity-photo"></div>
+                  </li>
+                  <li class="activity">
+                    <div class="user-pic"></div>
+                    <p class="text-center">Andrew Carnegie just discovered <a href="discoverable">Butcher and the Rye</a></p>
+                    <div class="activity-photo"></div>
+                  </li>
+                  <li class="activity">
+                    <div class="user-pic"></div>
+                    <p class="text-center">Andrew Carnegie just discovered <a href="discoverable">Butcher and the Rye</a></p>
+                    <div class="activity-photo"></div>
+                  </li>
+                  <li class="activity">
+                    <div class="user-pic"></div>
+                    <p class="text-center">Andrew Carnegie just discovered <a href="discoverable">Butcher and the Rye</a></p>
+                    <div class="activity-photo"></div>
+                  </li>
+                  <li class="activity">
+                    <div class="user-pic"></div>
+                    <p class="text-center">Andrew Carnegie just discovered <a href="discoverable">Butcher and the Rye</a></p>
+                    <div class="activity-photo"></div>
+                  </li>
+                  <li class="activity">
+                    <div class="user-pic"></div>
+                    <p class="text-center">Andrew Carnegie just discovered <a href="discoverable">Butcher and the Rye</a></p>
+                    <div class="activity-photo"></div>
+                  </li>
+                  <li class="activity">
+                    <div class="user-pic"></div>
+                    <p class="text-center">Andrew Carnegie just discovered <a href="discoverable">Butcher and the Rye</a></p>
+                    <div class="activity-photo"></div>
+                  </li>
+                  <li class="activity">
+                    <div class="user-pic"></div>
+                    <p class="text-center">Andrew Carnegie just discovered <a href="discoverable">Butcher and the Rye</a></p>
+                    <div class="activity-photo"></div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.2.0/js/framework7.min.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+</body>

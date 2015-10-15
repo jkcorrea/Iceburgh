@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Iceburgh | Explore Pittsburgh</title>
+    <!-- Framework7 Library CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.2.0/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.2.0/css/framework7.ios.colors.min.css">
+    <script src="/js/facebook.js"></script>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '417307785141513',
+          xfbml      : true,
+          version    : 'v2.4'
+        });
+      };
+      
+      (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+      
+    </script>
+    <!-- FontAwesome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Custom styles-->
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+</html>
+<script>
+  function displayHome(){
+    window.location.href = "/home.html";
+  }
+  
+  FB.getLoginStatus(function (response){
+    if (response.status == 'connected'){
+      console.log('Logged in');
+    }else{
+      console.log(response);
+    }
+    displayHome();
+  });
+  
+  function loginUser(){
+    FB.login(function(response){
+      console.log(response);
+      displayHome();
+    }, {scope: 'public_profile, email, user_friends'} );
+  }
+</script>
+<body>
+  <title>Iceburgh | Explore Pittsburgh</title>
+  <button data-action="bea" onclick="loginUser()" class="btn">Facebook Login</button>
+</body>
