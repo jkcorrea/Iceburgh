@@ -8,38 +8,37 @@ include _head.jade
     .pages
       .page(data-page="discoverable")
         include _tabbar.jade
+        .navbar
+          .navbar-inner
+            .left #[i.fa.fa-chevron-left]&ensp;Back
+            .right #[i.fa.fa-star-o]
 
-        form.searchbar
-          .searchbar-input
-            input(type='search', placeholder='Search')
-            a.searchbar-clear(href='#')
-          a.searchbar-cancel(href='#') Cancel
-        // Search bar overlay
-        .searchbar-overlay
-
-        .page-content.hide-navbar-on-scroll
+        .page-content
           .row#title
-            .col-100
-              h1 Trending Right Now
-              .swiper-container#trending-gallery
-                .swiper-wrapper
-                  .swiper-slide
-                    span Trending 1
-                  .swiper-slide
-                    span Trending 2
-                  .swiper-slide
-                    span Trending 3
-                  .swiper-slide
-                    span Trending 4
-                  .swiper-slide
-                    span Trending 5
-              h1 Explore
-              .infinite-scroll
-                  ul#explore-list
-                    - for (var i=0;i<30;i++) {
-                      li.item-content
-                        .explore-item #[span Item #{i}]
-                    - }
+            .col-82
+              h3 Mattress Factory
+              h2 North Side
+            .col-18
+              .point-value 15
+              //- .swiper-container#trending-gallery
+              //-   .swiper-wrapper
+              //-     .swiper-slide
+              //-       span Trending 1
+              //-     .swiper-slide
+              //-       span Trending 2
+              //-     .swiper-slide
+              //-       span Trending 3
+              //-     .swiper-slide
+              //-       span Trending 4
+              //-     .swiper-slide
+              //-       span Trending 5
+              //- h1 Explore
+              //- .infinite-scroll
+              //-     ul#explore-list
+              //-       - for (var i=0;i<30;i++) {
+              //-         li.item-content
+              //-           .explore-item #[span Item #{i}]
+              //-       - }
                 // Preloader
                 .infinite-scroll-preloader
                   .preloader

@@ -1,0 +1,28 @@
+.view#discoverable {
+  .navbar {
+    color: $white;
+    background: transparent;
+    &:after { background: transparent; }
+    .navbar-inner { padding: 0 18px 0 14px; }
+  }
+
+  .page-content {
+    margin: 4rem 0 0 0;
+    padding: 0 14px 0 14px;
+    #title {
+      h3 { font-size: 1.6rem; }
+      h2 { font-size: 1.2rem; line-height: 0.6rem; }
+      .point-value {
+        border: 3px solid $white;
+        height: 45px;
+        width: 45px;
+        border-radius: 90px;
+        text-align: center;
+        line-height: 45px;
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: $yellow;
+      }
+    }
+  }
+}
