@@ -24,5 +24,11 @@
         color: $yellow;
       }
     }
+
+    .swiper-slide {
+      margin: auto 0;
+      img { width: auto; height: 75px; }
+      &.swiper-slide-active img { height: 140px; }
+    }
   }
 }

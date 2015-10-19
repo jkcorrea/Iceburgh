@@ -4,29 +4,31 @@ var checkinButton = $("#checkin");
 $(document).on('app_load', function() {
   // Do any work with FB or Parse here
   var user = User.current();
-  user.fetch();
+  user.fetch().then(function(user) {
+    $("#profile-pic").css({backgroundImage: 'url("' + user.get("photo_url") + '")'});
+    $("#user-name").text(user.get("first_name") + " " + user.get("last_name"));
+    updateUserInfo(user); // invoke this on app_load
+  });
 
-  $("#profile-pic").css({backgroundImage: 'url("' + user.get("photo_url") + '")'});
-  $("#user-name").text(user.get("first_name") + " " + user.get("last_name"));
-  function updateUserInfo() {
+  function updateUserInfo(u) {
+    if (!u) u = user;
     // Retrieve user's current level
-    user.level(function(lvl) {
+    u.level(function(lvl) {
       // Update points to level up
-      lvl.pointsToNextLevel(user.get("points_earned"), function(pts) {
+      lvl.pointsToNextLevel(u.get("points_earned"), function(pts) {
         $("#points-remaining").text(pts);
       });
 
       $("#user-level").text(lvl.get("priority"));
       $("#next-level").text(lvl.get("priority") + 1);
-      $("#total-points").text(user.get("points_earned"));
+      $("#total-points").text(u.get("points_earned"));
     });
 
     // Retrieve user's badges
-    user.badges(function(badges) {
+    u.badges(function(badges) {
       $("#user-badges").text(badges.length);
     })
   };
-  updateUserInfo(); // invoke this on app_load
 
   // Use checkin
   checkinButton.click(function checkin() {
