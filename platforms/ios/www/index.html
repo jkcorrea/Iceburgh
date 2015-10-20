@@ -11,11 +11,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.2.0/css/framework7.ios.colors.min.css">
     <script src="/js/facebook.js"></script>
     <script>
+      var userName = "";
       window.fbAsyncInit = function() {
         FB.init({
           appId      : '417307785141513',
           xfbml      : true,
           version    : 'v2.4'
+        });
+        
+        FB.api('/me', function(response) {
+          userName = response.name;
         });
       };
       
@@ -26,6 +31,7 @@
         js.src = "//connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
+      
       
     </script>
     <!-- FontAwesome-->
@@ -54,6 +60,7 @@
       displayHome();
     }, {scope: 'public_profile, email, user_friends'} );
   }
+  
 </script>
 <body>
   <title>Iceburgh | Explore Pittsburgh</title>

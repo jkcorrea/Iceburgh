@@ -11,11 +11,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.2.0/css/framework7.ios.colors.min.css">
     <script src="/js/facebook.js"></script>
     <script>
+      var userName = "";
       window.fbAsyncInit = function() {
         FB.init({
           appId      : '417307785141513',
           xfbml      : true,
           version    : 'v2.4'
+        });
+        
+        FB.api('/me', function(response) {
+          userName = response.name;
         });
       };
       
@@ -26,6 +31,7 @@
         js.src = "//connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
+      
       
     </script>
     <!-- FontAwesome-->
@@ -52,4 +58,42 @@
   </div>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.2.0/js/framework7.min.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
+  <script>
+    var userName = "";
+    if(typeof FB === 'undefined'){
+      setTimeout(function(){
+        //do what you need here
+        updateUserName();
+        console.log("yo")
+      }, 150);
+    }else{
+      updateUserName();
+    }
+    
+    function updateUserName(){
+      FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+          var accessToken = response.authResponse.accessToken;
+          console.log(accessToken);
+          FB.api('/me', function(response) {
+            userName = response.name;
+            console.log("hey my name is "+ userName);
+            document.getElementById("username").innerHTML = userName;
+            var userNames = document.getElementsByClassName("userName");
+            for(i = 0; i < userNames.length; i++){
+              var element = userNames[i];
+              element.innerHTML = userName;
+            }
+          });
+          FB.api('/me/friends', {fields: 'name'}, function(response) {
+            var friends = response.data;
+            console.log("friends info");
+            console.log(friends);
+            
+          });
+    
+        }
+      });
+    }
+  </script>
 </body>

@@ -6,17 +6,22 @@ html
     meta(name='apple-mobile-web-app-capable', content='yes')
     meta(name="apple-mobile-web-app-status-bar-style", content="black")
     title Iceburgh | Explore Pittsburgh
-
+    
     // Framework7 Library CSS
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.2.0/css/framework7.ios.min.css")
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/framework7/1.2.0/css/framework7.ios.colors.min.css")
     script(src='/js/facebook.js')
     script.
+      var userName = "";
       window.fbAsyncInit = function() {
         FB.init({
           appId      : '417307785141513',
           xfbml      : true,
           version    : 'v2.4'
+        });
+        
+        FB.api('/me', function(response) {
+          userName = response.name;
         });
       };
 
@@ -27,9 +32,7 @@ html
         js.src = "//connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
-      FB.api('/me', function(response){
-        
-        })
+
 
     // FontAwesome
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css")

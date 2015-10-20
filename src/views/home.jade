@@ -5,6 +5,7 @@ body
   .statusbar-overlay
 
 
+
   .views
     .view.view-main#home
       .pages
@@ -14,7 +15,7 @@ body
               .col-80
                 #profile-pic
                 #user-info
-                  h2 Andrew Carnegie
+                  h2#username Andrew
                   h4 Level 1&ensp;|&ensp;#[i.fa.fa-trophy] 9
               .col-20
                 p#checkin.text-center Check in
@@ -46,8 +47,8 @@ body
                     li.activity
                       .user-pic
                       .activity-text
-                        p.text-center Andrew Carnegie just discovered #[a(href="discoverable") Butcher and the Rye]
+                        p(class="userName").text-center
+                        p.text-center just discovered #[a(href="discoverable") Butcher and the Rye]
                       .activity-photo
                   - }
-
-  include _js.jade
+include _js.jade
