@@ -40,9 +40,13 @@
     #level-progress {
       margin: 20px 0 10px;
       height: 65px;
-      #progress-bar {
-        width: 75%;
+      #progress-bar, #progress-bar-fill {
+        overflow: hidden;
+        position: absolute;
+        left: 12.5%;
+        width: 280px;
         height: 80px;
+        img { width: 280px; height: 100%; }
       }
     }
 

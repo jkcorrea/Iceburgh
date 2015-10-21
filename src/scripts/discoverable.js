@@ -21,12 +21,20 @@ $(document).on('app_load', function() {
     $("#title .point-value").text(d.get("points"));
     $("#cover-photo").css({
       backgroundImage: 'url("' + d.get("photo").url() + '")',
-      webkitFilter: 'blur(6px) brightness(0.5) contrast(1.7) grayscale(0.7)'
+      webkitFilter: 'blur(6px) brightness(0.7) contrast(1.7) grayscale(0.7)',
+      backgroundSize: "auto 60%",
+      backgroundPositionX: "40%"
     });
-    $("#photo-gallery .swiper-wrapper").append("<div class='swiper-slide'><div class='photo'><img src='"+d.get("photo").url()+"'></div></div>");
-    $("#photo-gallery .swiper-wrapper").append("<div class='swiper-slide'><div class='photo'><img src='"+d.get("photo").url()+"'></div></div>");
-    $("#photo-gallery .swiper-wrapper").append("<div class='swiper-slide'><div class='photo'><img src='"+d.get("photo").url()+"'></div></div>");
-    swp.update()
+    for (var i = 0; i < 4; i++) {
+      var slide =
+          "<div class='swiper-slide'>"
+          + "<div class='photo'>"
+            + "<img src='/images/discoverables/"+d.id+"/"+i+".jpg'>"
+          + "</div>"
+        + "</div>";
+      if (i === 3) swp.prependSlide(slide);
+      else swp.appendSlide(slide);
+    }
   });
 
 

@@ -12,9 +12,22 @@
     }
   }
 
-  #title {
+  #trending,#explore {
     margin: 1rem;
     h1 { text-align: left; font-size: 1.2rem; }
+  }
+
+  .label {
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    span {
+      color: $white;
+      font-weight: bold;
+      font-size: 10px;
+      text-shadow: 1px 1px black;
+      white-space: nowrap;
+    }
   }
 
   .swiper-container {
@@ -22,10 +35,10 @@
     .swiper-slide {
       width: 64px;
       height: 64px;
-      max-height: 64px;
-      max-width: 64px;
-      background: white;
-      span { color: black; }
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-position-y: 90%;
+      .label {top: 45px;left: 3px;}
     }
   }
 
@@ -43,17 +56,10 @@
       .explore-item {
         width: 100px;
         height: 100px;
-        background-image: image-url("butcher.jpg");
         background-repeat: no-repeat;
-        background-size: 100%;
+        background-size: 100% 100%;
         background-position-y: 90%;
-        span {
-          position: relative;
-          bottom: 2rem;
-          right: 0;
-          color: $white;
-          font-weight: bold;
-        }
+        .label {top: 77px;left: 4px;}
       }
     }
   }

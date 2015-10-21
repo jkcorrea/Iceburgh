@@ -18,32 +18,16 @@ include _head.jade
         .searchbar-overlay
 
         .page-content.hide-navbar-on-scroll
-          .row#title
+          .row#trending
             .col-100
               h1 Trending Right Now
               .swiper-container#trending-gallery
                 .swiper-wrapper
-                  .swiper-slide
-                    span Trending 1
-                  .swiper-slide
-                    span Trending 2
-                  .swiper-slide
-                    span Trending 3
-                  .swiper-slide
-                    span Trending 4
-                  .swiper-slide
-                    span Trending 5
+          .row#explore
+            .col-100
               h1 Explore
               .infinite-scroll
                   ul#explore-list
-                    - for (var i=0;i<30;i++) {
-                      li.item-content
-                        .explore-item #[span Item #{i}]
-                    - }
-                // Preloader
-                .infinite-scroll-preloader
-                  .preloader
-
 
 
 

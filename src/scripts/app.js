@@ -1,5 +1,5 @@
 var root_path = '/', index_path = '/index.html', home_path = '/home.html';
-function redirect_to(path) { window.location.pathname = path; }
+function redirect_to(path) { window.location = path; }
 function get_pathname() { return window.location.pathname; }
 function at_root() { return get_pathname() === root_path || get_pathname === index_path; }
 function get_params(){for(var i,n=[],o=window.location.href.slice(window.location.href.indexOf("?")+1).split("&"),t=0;t<o.length;t++)i=o[t].split("="),n.push(i[0]),n[i[0]]=i[1];return n}

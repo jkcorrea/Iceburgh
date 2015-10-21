@@ -15,13 +15,15 @@ $(document).on('app_load', function() {
     // Retrieve user's current level
     u.level(function(lvl) {
       // Update points to level up
-      lvl.pointsToNextLevel(u.get("points_earned"), function(pts) {
-        $("#points-remaining").text(pts);
+      var points = u.get("points_earned");
+      lvl.pointsToNextLevel(points, function(pointsLeft) {
+        $("#points-remaining").text(pointsLeft);
+        $("#progress-bar-fill").width(280*(points / (pointsLeft + points)));
       });
 
       $("#user-level").text(lvl.get("priority"));
       $("#next-level").text(lvl.get("priority") + 1);
-      $("#total-points").text(u.get("points_earned"));
+      $("#total-points").text(points);
     });
 
     // Retrieve user's badges
@@ -32,7 +34,7 @@ $(document).on('app_load', function() {
 
   function updateActivity() {
     activityList.empty();
-    var query = new Parse.Query(Discovery)
+    new Parse.Query(Discovery)
       .include("user")
       .include("discoverable")
       .descending("updatedAt")
@@ -61,19 +63,25 @@ $(document).on('app_load', function() {
     Parse.GeoPoint.current(function(pos) {
       var query = new Parse.Query(Discoverable);
       query.withinKilometers("location", pos, 0.300);
-      query.find({
-        success: function (discoverables) {
-          var d = discoverables[0];
-          alert("Congratulations! You have received " + d.get("points") + " points for discovering " + d.get("name") + "!");
-          user.increment("points_earned", d.get("points"));
-          var discovery = new Discovery();
-          discovery.set("user", user);
-          discovery.set("discoverable", d);
-          discovery.save(null, { success: updateActivity });
-          user.save(null, { success: updateUserInfo });
-          checkinButton.text("Check in");
-          checkinButton.click(checkin);
-        }
+      query.find().then(function (discoverables) {
+        var d = discoverables[0];
+        new Parse.Query(Discovery)
+        .equalTo("user", user)
+        .equalTo("discoverable", d)
+        .find().then(function(ds) {
+          if (ds.length > 0) app.alert("You've already checked in here, try somewhere new next time!", "Uh-oh.");
+          else {
+            app.alert("You have received " + d.get("points") + " points for discovering " + d.get("name") + "!", "Congrats!");
+            user.increment("points_earned", d.get("points"));
+            var discovery = new Discovery();
+            discovery.set("user", user);
+            discovery.set("discoverable", d);
+            discovery.save(null, { success: updateActivity });
+            user.save(null, { success: updateUserInfo });
+          }
+        });
+        checkinButton.text("Check in");
+        checkinButton.click(checkin);
       }); // query.find
     }); // geopoint.current
   });
