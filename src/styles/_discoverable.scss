@@ -34,25 +34,33 @@
 
     #photo-gallery {
       margin: 2rem 0 0 0;
+      min-height: 120px;
       .swiper-slide {
         margin: auto 0;
+        &.swiper-slide-active .photo { height: 120px; }
         .photo {
           transition: all 0.3s linear;
           height: 80px;
           img { height: 100%; width: 100%; }
         }
-
-        &.swiper-slide-active .photo { height: 120px; }
       }
     }
 
     #about {
+      height: 300px;
       margin: 2rem 0 0 0;
       background: $black;
 
       #about-header { margin: 0; font-size: 16px; color: $lgrey; }
       #description { margin-bottom: 1.5rem; font-size: 12px; }
-      #links p { margin: 0; }
+      #links {
+        p { margin: 0; }
+        .col-50 {
+          width: 160px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
     }
   }
 }

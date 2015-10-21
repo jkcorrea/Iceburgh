@@ -42,11 +42,11 @@ $(document).on('app_load', function() {
           var d = discoveries[key].get("discoverable");
           activityList.append(
             "<li class='activity'>"
-            + "<div class='user-pic' style='background-image: url(" + u.get("photo_url") + ");'></div>"
+            + "<div class='user-pic' style='background-image: url("+u.get("photo_url")+");'></div>"
             + "<div class='activity-text'>"
-              + "<p class='text-center'>" + u.get("first_name") + " " + u.get("last_name") + " has discovered <a href='/discoverable.html?id=" + d.id + "'>" + d.get("name") + "</a>.</p>"
+              + "<p class='text-center'>"+u.get("first_name")+" "+u.get("last_name")+" has discovered <a class='external' href='/discoverable.html?id="+d.id+"'>"+d.get("name")+"</a>.</p>"
             + "</div>"
-            + "<div class='activity-photo' style='background-image: url(" + d.get("photo").url() + ");'></div>");
+            + "<a class='external' href='/discoverable.html?id="+d.id+"'><div class='activity-photo' style='background-image: url(" + d.get("photo").url() + ");'></div></a>");
         }
       });
   }
