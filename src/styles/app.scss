@@ -17,13 +17,13 @@ body{font-family:$font-stack!important;}
 .desaturate{-webkit-filter:grayscale(100%);filter:grayscale(100%);}
 p{color:$white;}
 h1,h2,h3,h4,h5,h6{margin:0;}
-h1,h2{color:$yellow;}
+h1,h2,a{color:$yellow;}
 h3,h4,h5,h6{color:$white;}
 h1{font-size:3rem;font-weight:bold;}
-h2{font-size: 20px;font-weight: normal;}
-h3{font-size: 1.2rem;font-weight: normal;}
-h4{font-size: 14px;font-weight: normal;}
-h5{font-size: 11px;font-weight: normal;}
+h2{font-size:20px;font-weight:normal;}
+h3{font-size:1.2rem;font-weight:normal;}
+h4{font-size:14px;font-weight:normal;}
+h5{font-size:11px;font-weight:normal;}
 
 // Page loading animation screen
 @-webkit-keyframes screen-loader{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes screen-loader{0%{-moz-transform:rotate(0);-ms-transform:rotate(0);-webkit-transform:rotate(0);transform:rotate(0)}100%{-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)}}
@@ -50,15 +50,24 @@ h5{font-size: 11px;font-weight: normal;}
   }
 }
 
-.views {
-  .view.view-main {
-    .page {
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), image-url("bridge_bg.jpg") no-repeat center;
-      background-size: auto 100%;
-      background-position-x: 15%;
-      background-position-y: -22px;
-    }
-  }
+.views {background: none;}
+.pages {background: none;}
+.page  {background: none;}
+
+#cover-photo {
+  position: absolute;
+  overflow: hidden;
+  margin: -10px;
+  top: 0; left: 0;
+  width: 105%; height: 115%;
+  z-index: 0;
+  background-color: $dgrey;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), image-url("bridge_full.jpg") no-repeat center;
+  background-size: auto calc(100% - 44px);
+  background-position-x: 15%;
+  background-position-y: -30px;
+  -webkit-filter: blur(6px) brightness(0.9) contrast(1.7) grayscale(1);
+  filter: blur(6px) brightness(0.9) contrast(1.7) grayscale(1);
 }
 
 .toolbar.tabbar {

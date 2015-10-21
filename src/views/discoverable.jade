@@ -10,7 +10,7 @@ include _head.jade
         include _tabbar.jade
         .navbar
           .navbar-inner
-            .left #[i.fa.fa-chevron-left]&ensp;Back
+            a.left(href="javascript:history.back()") #[i.fa.fa-chevron-left]&ensp; Back
             .right #[i.fa.fa-star-o]
 
         .page-content
@@ -20,18 +20,28 @@ include _head.jade
               h2 North Side
             .col-18
               .point-value 15
-            .swiper-container#photo-gallery
-              .swiper-wrapper
-                .swiper-slide
-                  img(src="images/mattress.jpg")
-                .swiper-slide
-                  img(src="images/butcher.jpg")
-                .swiper-slide
-                  img(src="images/mattress.jpg")
-                .swiper-slide
-                  img(src="images/butcher.jpg")
-                .swiper-slide
-                  img(src="images/mattress.jpg")
+          .row#photo-browser
+            .col-100
+              .swiper-container#photo-gallery
+                .swiper-wrapper
+                  .swiper-slide
+                    .photo
+                      img(src="images/mattress.jpg")
+          .row#about
+            .col-100.content-block
+              .row
+                .col-100
+                  p#about-header About
+                  p#description The Mattress Factory hasn't been an actual mattress factory for a while now. Built on a hillside in the Central Northside neighborhood, back at the turn of the last century, it was used as a warehouse and showroom for Stearns &amp; Foster until the 1960s. Today, it's one of the country's more unusual art museums. Filled not with paintings or sculptures — and certainly not with mattresses — it is now, four stories of ... well, of "stories" in a way. Installations that take you places you don't expect to go in an art museum.
+              .row#links
+                .col-50
+                  p#web On the web:
+                  a http://www.mattress.org
+                .col-50
+                  p#street On the street:
+                  a 500 Sampsonia Way
+
+
 
 
 
